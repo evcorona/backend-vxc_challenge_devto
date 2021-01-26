@@ -12,7 +12,7 @@ server.use('/auth',authRouter)
 server.get('/', (request,response) => {
   response.json({
     sucess: true,
-    message: 'devtoAPI'
+    message: 'devtoAPI.vxcrown'
   })
 })
 
