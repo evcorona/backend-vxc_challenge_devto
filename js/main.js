@@ -1,9 +1,56 @@
 let endpointPostData = "http://127.0.0.1:8080/posts"
-let jwt = localStorage.getItem("jwt") 
-let token = {"Authorization": jwt}
 let containerPost = ".container-cards"
 let allPost = {}
 let filterActivated = false
+
+//LocalStorage
+let jwt = localStorage.getItem("jwt") 
+
+const btns = 
+        ` <!-- Botones cuando user esta loggeado -->
+        <div class="d-flex flex-row navbtns-logged">
+            <a href="/pages/write-post.html">
+                <button type="button"
+                    class="btn btn-primary shadow-none font-weight-bold mx-2 text-nowrap d-none d-md-block ml-lg-5">Write
+                    a
+                    post</button>
+            </a>
+            <a class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center" href="#">
+                <img src="/images/nav/post-icon.png" class="rounded-circle" alt="Connect" loading="lazy">
+            </a>
+            <a class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center" href="#">
+                <img src="/images/nav/notification-icon.png" class="rounded-circle" alt="Notifications"
+                    loading="lazy">
+            </a>
+            <div class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center dropdown">
+                <img src="/images/nav/perfil-icon.png" class="rounded-circle" alt="Perfil" loading="lazy">
+                <div class="dropdown-content rounded position-absolute">
+                    <a class="dropdown-item username" href="#">username</a>
+                    <a href="dropdown-item"><small class="usernameA text-muted ml-4">@username</small></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="#">Write a Post</a>
+                    <a class="dropdown-item" href="#">Reading list</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Key Links</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item signout" href="#">Sign Out</a>
+                </div>
+            </div>
+        </div>
+        <!-- FIN Botones cuando user esta loggeado -->'
+        `
+if(jwt){
+    localStorage.setItem("usr",JSON.parse(atob(jwt.split(".")[1])).username)
+    $(".btns-user").html(btns)
+    $(".username").text(localStorage.getItem("usr"))
+    $(".usernameA").text("@"+localStorage.getItem("usr"))
+    $(".signout").click( event => {
+        localStorage.clear()
+        location.reload()
+    })
+}
+
 
 //--------------------------------------------INICIO DE FUNCIONALIDAD DE FILTROS SEARCH Y DATE--------------------------------------------
 //Listener filtros de Barra Fechas
@@ -70,7 +117,7 @@ const getTheJson = (origin, criteria) => {
     $.ajax({
         url: endpointPostData,
         method: "GET",
-        headers: token,
+        headers: {"Authorization": jwt},
         dataType: "json",
         success: data => {
             allPost = data.data.reverse()

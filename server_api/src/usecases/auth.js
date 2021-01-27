@@ -15,8 +15,7 @@ async function login(email, password) {
   const isPasswordValid = await bcrypt.compare(password, userFound.password)
   if (!isPasswordValid) throw new Error('Invalid data')
 
-  const token = jwt.sign({ id: userFound._id }, 'kodemia123') 
-  /*esto cambiara*/
+  const token = jwt.sign({ id: userFound._id, username: userFound.username}, process.env.JWT_SECRET) 
 
   return token
 }

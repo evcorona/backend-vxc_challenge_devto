@@ -30,7 +30,7 @@ const postAjax = (theEntry) => {
     dataType: "json",
     success: data => {
       localStorage.setItem("jwt",data.data.token)
-      $(location).attr('href',"/index_logged.html");
+      $(location).attr('href',"/index.html");
     },
     error: error => {
       console.log(error)

@@ -7,10 +7,11 @@ function auth(request, response, next) {
       throw new Error('Token required')
     }
 
-    const payloadDecoded = jwt.verify(token, "kodemia123") //cambiara
+    const payloadDecoded = jwt.verify(token, process.env.JWT_SECRET) //cambiara
     if (!payloadDecoded) {
       throw new Error('Invalid token')
     }
+
     next()
   } catch (error) {
     response.status(401)

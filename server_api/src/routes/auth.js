@@ -34,6 +34,7 @@ router.post('/login', async (request, response) => {
       message: 'User logged in',
       data: {
         token: token
+        
       }
     })
   } catch (error) {

@@ -13,7 +13,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/dev-badge.svg" />
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <title>DEV Community</title>
 </head>
@@ -164,18 +164,21 @@
                 <form class="form-inline flex-grow-1 mr-1 mr-lg-5" action="#">
                     <input class="form-control w-100 input-search" type="search" placeholder="Search...">
                 </form>
-                <!-- Botones cuando user es invitado -->
-                <div class="d-flex flex-row navbtns-invite">
-                    <a href="pages/login.html">
-                        <button type="button"
-                            class="btn shadow-none mx-2 text-nowrap d-none d-md-block ml-lg-2 btn-login">Log in</button>
-                    </a>
-                    <a href="pages/signup.html">
-                        <button type="button"
-                            class="btn btn-primary shadow-none mx-2 text-nowrap ml-lg-5">Create account</button>
-                    </a>
+                <div class="btns-user">
+                    <!-- Botones cuando user es invitado -->
+                    <div class="d-flex flex-row navbtns-invite">
+                        <a href="pages/login.html">
+                            <button type="button"
+                                class="btn shadow-none mx-2 text-nowrap d-none d-md-block ml-lg-2 btn-login">Log
+                                in</button>
+                        </a>
+                        <a href="pages/signup.html">
+                            <button type="button" class="btn btn-primary shadow-none mx-2 text-nowrap ml-lg-5">Create
+                                account</button>
+                        </a>
+                    </div>
+                    <!-- FIN Botones cuando user esta invitado -->
                 </div>
-                <!-- FIN Botones cuando user esta loggeado -->
             </div>
         </nav>
         <!--***********AQUI TERMINA EL NAV***************************************************************************************************-->
@@ -197,8 +200,8 @@
                                                 class="aside-profile-image rounded-circle" alt="...">
                                         </span>
                                         <div class="aside-profile-content">
-                                            <h5>User Name</h5>
-                                            <h6>@username</h6>
+                                            <h5 class="username">User Name</h5>
+                                            <h6 class="usernameA">@username</h6>
                                         </div>
                                     </a>
                                     <div>

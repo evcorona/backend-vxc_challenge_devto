@@ -1,5 +1,6 @@
 let theUser = {}
 let endpoint = "http://127.0.0.1:8080/auth/signup"
+let alert = 'Datos no válidos, favor de revisar.'
 
 //--------Funciones para agregar un nuevo Post------------
 //Listener de Inputs del Formulario
@@ -30,6 +31,7 @@ const postAjax = (theEntry) => {
     },
     error: error => {
       console.log(error)
+      $(".alert").text(alert)
     }
   });
 }
