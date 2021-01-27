@@ -1,4 +1,5 @@
-let endpointPostData = "https://desafio-esp-js-default-rtdb.firebaseio.com/post/.json"
+let endpointPostData = "http://127.0.0.1:8080/posts"
+let token = {"Authorization": localStorage.getItem("jwt") }
 let containerPost = ".container-cards"
 let allPost = {}
 let filterActivated = false
@@ -68,12 +69,11 @@ const getTheJson = (origin, criteria) => {
     $.ajax({
         url: endpointPostData,
         method: "GET",
+        headers: token,
         success: data => {
             allPost = data
             console.log(allPost)
             gettingToCriteria(allPost, origin, criteria)
-
-
         },
         error: error => {
             console.log(error)

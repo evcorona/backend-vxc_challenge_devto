@@ -5,9 +5,9 @@ const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
   username: {
     type: String,
-    pattern: /^[a-z0-9_-]{3,15}$/,
-    minlength: 4,
-    maxlength: 10,
+   // pattern: /^[a-z0-9_-]{3,15}$/,
+   // minlength: 4,
+   // maxlength: 10,
     required: true
   },
   email: {

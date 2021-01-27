@@ -10,10 +10,11 @@ async function signup(username, email, password) {
 
 async function login(email, password) {
   const userFound = await Users.findOne({ email: email })
-  if (!userFound) throw new Error('Invalid data')
+  console.log("Usuario encontrado",userFound)
+  if (!userFound) throw new Error('Invalid data1')
 
   const isPasswordValid = await bcrypt.compare(password, userFound.password)
-  if (!isPasswordValid) throw new Error('Invalid data')
+  if (!isPasswordValid) throw new Error('Invalid data2')
 
   const token = jwt.sign({ id: userFound._id }, 'kodemia123') 
   /*esto cambiara*/

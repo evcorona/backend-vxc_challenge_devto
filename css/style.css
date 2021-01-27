@@ -530,11 +530,6 @@ a:hover {
   position: relative;
 }
 
-.nav-top .navbtns-logged {
-  width: 0px;
-  visibility: hidden;
-}
-
 .nav-top .navbtns-invite {
   visibility: visible;
 }

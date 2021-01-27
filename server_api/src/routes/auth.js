@@ -24,9 +24,10 @@ router.post('/signup', async (request, response) => {
 })
 
 // POST /auth/login
-router.get('/login', async (request, response) => {
+router.post('/login', async (request, response) => {
   try {
     const { email, password } = request.body
+    console.log(request.body)
     const token = await auth.login(email, password)
 
     response.json({
@@ -40,7 +41,7 @@ router.get('/login', async (request, response) => {
     response.status(401) //Unathorized
     response.json({
       success: false,
-      message: 'Invalid data'
+      message: error.message
     })
   }
 })

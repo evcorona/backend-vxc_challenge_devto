@@ -13,7 +13,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/dev-badge.svg" />
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <title>DEV Community</title>
 </head>
@@ -164,16 +164,36 @@
                 <form class="form-inline flex-grow-1 mr-1 mr-lg-5" action="#">
                     <input class="form-control w-100 input-search" type="search" placeholder="Search...">
                 </form>
-                <!-- Botones cuando user es invitado -->
-                <div class="d-flex flex-row navbtns-invite">
-                    <a href="pages/login.html">
+                <!-- Botones cuando user esta loggeado -->
+                <div class="d-flex flex-row navbtns-logged">
+                    <a href="/pages/write-post.html">
                         <button type="button"
-                            class="btn shadow-none mx-2 text-nowrap d-none d-md-block ml-lg-2 btn-login">Log in</button>
+                            class="btn btn-primary shadow-none font-weight-bold mx-2 text-nowrap d-none d-md-block ml-lg-5">Write
+                            a
+                            post</button>
                     </a>
-                    <a href="pages/signup.html">
-                        <button type="button"
-                            class="btn btn-primary shadow-none mx-2 text-nowrap ml-lg-5">Create account</button>
+                    <a class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center" href="#">
+                        <img src="/images/nav/post-icon.png" class="rounded-circle" alt="Connect" loading="lazy">
                     </a>
+                    <a class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center" href="#">
+                        <img src="/images/nav/notification-icon.png" class="rounded-circle" alt="Notifications"
+                            loading="lazy">
+                    </a>
+                    <div class="navbar-brand rounded-circle top-icons p-1 d-flex align-items-center dropdown">
+                        <img src="/images/nav/perfil-icon.png" class="rounded-circle" alt="Perfil" loading="lazy">
+                        <div class="dropdown-content rounded position-absolute">
+                            <a class="dropdown-item" href="#">username<br><small class="text-muted">
+                                    @username</small></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <a class="dropdown-item" href="#">Write a Post</a>
+                            <a class="dropdown-item" href="#">Reading list</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Key Links</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Sign Out</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- FIN Botones cuando user esta loggeado -->
             </div>

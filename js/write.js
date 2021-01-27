@@ -1,10 +1,10 @@
 //------------------------------------------Codigo para Write-Post------------------------------------------------
 let newPost = {}
-let endpointPostData = "https://desafio-esp-js-default-rtdb.firebaseio.com/post/.json"
+let endpointPostData = "http://127.0.0.1:8080/posts"
 
 //--------Funciones para agregar un nuevo Post------------
 //Listener de Inputs del Formulario
-$("input, select, textarea").change(event => {
+$("input, select, textarea").keyup(event => {
     let property = event.target.name
     let value = event.target.value
     newPost[property] = value
@@ -13,20 +13,32 @@ $("input, select, textarea").change(event => {
 
 //Listener de Boton Publicar
 $(".btn-publish").click(() => {
+    newPost = { 
+        title: "CSS Tips and Tricks", 
+        username: "verox", 
+        date:  new Date(),
+        tags: "watercooler,css,beginners,webdev", 
+        content: "#001↵↵For the last couple of months, we at Skynox …ust one line in your CSS can help you achieve it.", 
+        URL: "https://res.cloudinary.com/practicaldev/image/fetc…loads.s3.amazonaws.com/i/map4odd0j77wzg18vls9.png", 
+    }
+    console.log(newPost)
     postAjax(newPost)
-    newPost = {}
 })
 
-//Request de POST   *****Cambiara al unir con main (hacer mi funcion all in one)
+//Request de POST  
 const postAjax = (theEntry) => {
     $.ajax({
         url: endpointPostData,
+        headers: {"Content-Type":"application/json"},
         method: "POST",
         data: JSON.stringify(theEntry),
+        dataType: "json",
         success: data => {
             console.log(data)
         },
-        error: "",
+        error: error => {
+            console.log(error)
+        },
     });
 }
 
