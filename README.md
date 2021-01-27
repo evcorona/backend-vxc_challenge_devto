@@ -1,4 +1,4 @@
-# Backend challenge **API de dev.to**
+# Backend challenge **API de dev.to** @veroxcrown
 
 Endpoints:
 * GET /posts -> listas posts
