@@ -36,6 +36,7 @@ const postAjax = (theEntry) => {
         dataType: "json",
         success: data => {
             console.log(data)
+            $(location).attr('href',"/index_logged.html");
         },
         error: error => {
             console.log(error)

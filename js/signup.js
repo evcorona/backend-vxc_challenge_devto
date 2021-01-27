@@ -26,7 +26,7 @@ const postAjax = (theEntry) => {
     dataType: "json",
     success: data => {
       console.log(data)
-      $(location).attr('href',"signup.html");
+      $(location).attr('href',"login.html");
     },
     error: error => {
       console.log(error)
