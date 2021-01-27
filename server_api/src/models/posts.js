@@ -11,8 +11,8 @@ const schema = new mongoose.Schema({
     trim: true,
     required: true
   },
-  date: {
-    type: String, //Date
+  datetime: {
+    type: Date, 
     required: true
   },
   tags: {

@@ -1,5 +1,5 @@
 //------------------------------------------Codigo para Write-Post------------------------------------------------
-let newPost = {}
+let newPost = {datetime: ""}
 let endpointPostData = "http://127.0.0.1:8080/posts"
 
 //--------Funciones para agregar un nuevo Post------------
@@ -13,14 +13,15 @@ $("input, select, textarea").keyup(event => {
 
 //Listener de Boton Publicar
 $(".btn-publish").click(() => {
-    newPost = { 
+  newPost.datetime= new Date()
+ /*  newPost = { 
         title: "CSS Tips and Tricks", 
         username: "verox", 
-        date:  new Date(),
+        datetime:  new Date, 
         tags: "watercooler,css,beginners,webdev", 
         content: "#001↵↵For the last couple of months, we at Skynox …ust one line in your CSS can help you achieve it.", 
         URL: "https://res.cloudinary.com/practicaldev/image/fetc…loads.s3.amazonaws.com/i/map4odd0j77wzg18vls9.png", 
-    }
+    } */
     console.log(newPost)
     postAjax(newPost)
 })

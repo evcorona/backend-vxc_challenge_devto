@@ -25,8 +25,8 @@ router.get('/:id', async (request, response) => {
 })
 
 router.post('/', async (request, response) => {
-  const { title, username, date, tags, content, URL } = request.body
-  const PostCreated = await posts.createPosts(title, username, date, tags, content, URL)
+  const { title, username, datetime, tags, content, URL } = request.body
+  const PostCreated = await posts.createPosts(title, username, datetime, tags, content, URL)
 
   response.json({
     success: true,

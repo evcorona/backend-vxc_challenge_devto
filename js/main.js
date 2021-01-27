@@ -1,5 +1,6 @@
 let endpointPostData = "http://127.0.0.1:8080/posts"
-let token = {"Authorization": localStorage.getItem("jwt") }
+let jwt = localStorage.getItem("jwt") 
+let token = {"Authorization": jwt}
 let containerPost = ".container-cards"
 let allPost = {}
 let filterActivated = false
@@ -70,9 +71,9 @@ const getTheJson = (origin, criteria) => {
         url: endpointPostData,
         method: "GET",
         headers: token,
+        dataType: "json",
         success: data => {
-            allPost = data
-            console.log(allPost)
+            allPost = data.data.reverse()
             gettingToCriteria(allPost, origin, criteria)
         },
         error: error => {
@@ -90,6 +91,7 @@ const gettingToCriteria = (theJson, filter, criteria) => {
         let object = theJson[key]
         let { title, datetime } = object
         let dateToCheck = new Date(datetime)
+        console.log("datetime",datetime,"datetoCheck",dateToCheck,"criteria",criteria)
         if (filter === "search" || filter === "main" || filter === "scroll") {
             if (title.includes(criteria)) {
                 fillDataToCards(object, i, filter)

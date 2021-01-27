@@ -10,12 +10,13 @@ $("input").keyup(event => {
   console.log(theUser)
 })
 
-/*  theUser = {
+//Listener de Boton Publicar
+$(".btn-login").click(() => {
+  
+  /*  theUser = {
   email: "veroxcrown@vxsolutions.com",
   password: "123Jadotville"
 }*/
-//Listener de Boton Publicar
-$(".btn-login").click(() => {
     postAjax(theUser)
 })
 
@@ -28,8 +29,8 @@ const postAjax = (theEntry) => {
     data: JSON.stringify(theEntry),
     dataType: "json",
     success: data => {
-      console.log(data)
       localStorage.setItem("jwt",data.data.token)
+      $(location).attr('href',"/index_logged.html");
     },
     error: error => {
       console.log(error)

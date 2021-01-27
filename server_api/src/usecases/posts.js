@@ -9,8 +9,8 @@ function getPostById(id) {
   return Posts.findById(id) 
 } 
 
-function createPosts(title, username, date, tags, content, URL){
-  return Posts.create({title, username, date, tags, content, URL})
+function createPosts(title, username, datetime, tags, content, URL){
+  return Posts.create({title, username, datetime, tags, content, URL})
 }
 
 module.exports = {
