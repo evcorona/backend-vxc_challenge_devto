@@ -7,7 +7,7 @@ function auth(request, response, next) {
       throw new Error('Token required')
     }
 
-    const payloadDecoded = jwt.verify(token, process.env.JWT_SECRET) //cambiara
+    const payloadDecoded = jwt.verify(token, process.env.JWT_SECRET) 
     if (!payloadDecoded) {
       throw new Error('Invalid token')
     }

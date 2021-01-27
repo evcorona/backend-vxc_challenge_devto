@@ -1,5 +1,5 @@
 //------------------------------------------Codigo para Write-Post------------------------------------------------
-let newPost = {datetime: ""}
+let newPost = {datetime: "",username:localStorage.getItem("usr")}
 let endpointPostData = "http://127.0.0.1:8080/posts"
 
 //--------Funciones para agregar un nuevo Post------------
@@ -13,7 +13,7 @@ $("input, select, textarea").keyup(event => {
 
 //Listener de Boton Publicar
 $(".btn-publish").click(() => {
-  newPost.datetime= new Date()
+  newPost.datetime = new Date()
  /*  newPost = { 
         title: "CSS Tips and Tricks", 
         username: "verox", 
